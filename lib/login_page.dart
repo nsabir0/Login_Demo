@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:login_app/signup_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -15,6 +16,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text('Login Demo'),
         centerTitle: true,
@@ -24,14 +26,15 @@ class _LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Login', style: TextStyle(fontSize: 35, color: Colors.lightBlueAccent),),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 30),
+              child: Text('LOGIN', style: TextStyle(fontSize: 35, color: Colors.lightBlueAccent),),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 35),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 35),
-                      child: TextFormField(
+                     TextFormField(
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           labelText: 'Email',
@@ -40,17 +43,10 @@ class _LoginState extends State<Login> {
                           border: OutlineInputBorder(),
                         ),
                         onChanged: (value) {},
-                        validator: (value) {
-                          return value!.isEmpty
-                              ? 'Please enter your Email'
-                              : null;
-                        },
                       ),
-                    ),
+
                     SizedBox(height: 30,),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 35),
-                      child: TextFormField(
+                       TextFormField(
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           labelText: 'Password',
@@ -59,13 +55,9 @@ class _LoginState extends State<Login> {
                           border: OutlineInputBorder(),
                         ),
                         onChanged: (value) {},
-                        validator: (value) {
-                          return value!.isEmpty
-                              ? 'Please enter Password'
-                              : null;
-                        },
+
                       ),
-                    ),
+
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 30),
                       child: ElevatedButton(
@@ -76,7 +68,15 @@ class _LoginState extends State<Login> {
                           );
                         },
                       ),
-                    )
+                    ),
+                    SizedBox(height: 20),
+                    ElevatedButton(
+                        child: Text('Signup',style: TextStyle(fontSize: 20, color: Colors.white)),
+                        onPressed: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => const Signup()),
+                        );
+                      },)
                   ],
                 ),
 
