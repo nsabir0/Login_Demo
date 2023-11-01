@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/login_page.dart';
+import 'package:login_app/Screens/login_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (_, child) {*/
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ScreenUtils(),
     );
@@ -40,7 +40,7 @@ class _ScreenUtilsState extends State<ScreenUtils> {
     return ScreenUtilInit(
       designSize: Size(width / 2, height),
       builder: (_, child) {
-        return Login();
+        return const Login();
       },
     );
   }
