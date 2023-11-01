@@ -12,14 +12,18 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter_screenutil: ^5.9.0
   fluttertoast: ^8.2.2
+  get: ^4.6.6
   google_fonts: ^6.1.0
+  http: ^1.1.0
+
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.0
 
 flutter:
   uses-material-design: true
 assets:
-  - lib/images/
+  - assets/images/

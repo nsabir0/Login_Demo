@@ -1,8 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:login_app/home_page.dart';
-import 'package:login_app/signup_page.dart';
+import 'package:login_app/Screens/home_page.dart';
+import 'package:login_app/Screens/signup_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -17,7 +15,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text('Login Demo'),
+        title: const Text('Login Demo'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -25,8 +23,8 @@ class _LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 30),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 30),
               child: Text(
                 'LOGIN',
                 style: TextStyle(fontSize: 35, color: Colors.lightBlueAccent),
@@ -38,7 +36,7 @@ class _LoginState extends State<Login> {
                 children: [
                   TextFormField(
                     keyboardType: TextInputType.emailAddress,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                       hintText: 'Enter Your Email',
                       prefixIcon: Icon(Icons.email_rounded),
@@ -46,12 +44,12 @@ class _LoginState extends State<Login> {
                     ),
                     onChanged: (value) {},
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.visiblePassword,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Password',
                       hintText: 'Enter Your Password',
                       prefixIcon: Icon(Icons.password_rounded),
@@ -63,7 +61,7 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 100, vertical: 30),
                     child: ElevatedButton(
-                      child: Text(
+                      child: const Text(
                         'Login',
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
@@ -76,9 +74,9 @@ class _LoginState extends State<Login> {
                       },
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   ElevatedButton(
-                    child: Text('Signup',
+                    child: const Text('Signup',
                         style: TextStyle(fontSize: 20, color: Colors.white)),
                     onPressed: () {
                       Navigator.push(
