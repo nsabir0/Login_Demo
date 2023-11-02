@@ -29,7 +29,7 @@ class _MainPageState extends State<MainPage> {
 
   @override
   void initState() {
-    //re appear statusbar in case it was not there in the previous page
+    //re appear status bar in case it was not there in the previous page
     // SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
     //     overlays: [SystemUiOverlay.top, SystemUiOverlay.bottom]);
     super.initState();
