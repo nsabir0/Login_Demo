@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:login_app/Components/app_theme.dart';
 import 'package:login_app/Components/input_decorations.dart';
 import 'package:login_app/Config/addon_config.dart';
+import 'package:login_app/View/main_page.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -216,7 +218,7 @@ class _LoginState extends State<Login> {
                               ],
                             ),
                           ),
-//==================Login Button========================
+                          //==================Login Button========================
                           Padding(
                             padding: EdgeInsets.only(top: 30.h),
                             child: Container(
@@ -240,6 +242,7 @@ class _LoginState extends State<Login> {
                                         fontWeight: FontWeight.w600)),
                                 onPressed: () {
                                   //onPressedLogin();
+                                  Get.to(() => const MainPage());
                                 },
                               ),
                             ),
