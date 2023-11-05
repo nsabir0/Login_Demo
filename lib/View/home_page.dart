@@ -69,19 +69,15 @@ class _HomePageState extends State<HomePage> {
           builder: (context) => Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 18.0, horizontal: 0.0),
-            child: Image.asset(
-              "assets/images/hamburger.png",
-              height: 16,
-              //color: MyTheme.dark_grey,
-              color: MyTheme.grey_153,
-            ),
+            child: Image.asset("assets/images/hamburger.png",
+                height: 16,
+                //color: MyTheme.dark_grey,
+                color: MyTheme.grey_153),
           ),
         ),
       ),
-      title: const Text(
-        "Dashboard",
-        style: TextStyle(fontSize: 16, color: Colors.white),
-      ),
+      title: const Text("Dashboard",
+          style: TextStyle(fontSize: 16, color: Colors.white)),
       elevation: 0.0,
       titleSpacing: 0,
       backgroundColor: const Color.fromRGBO(39, 38, 43, 1),
@@ -113,16 +109,15 @@ class _HomePageState extends State<HomePage> {
   buildTopContainer() {
     return SizedBox(
       width: double.infinity,
-      height: 400.h,
+      height: mHeight > 800 ? 350.w : 280.w,
       child: Padding(
-          padding:
-              EdgeInsets.only(top: 8.h, bottom: 16.h, left: 8.w, right: 8.w),
+          padding: EdgeInsets.only(top: 12.w, left: 12.w, right: 12.w),
           child: GridView.count(
             crossAxisCount: 2,
-            crossAxisSpacing: 20.dg,
-            mainAxisSpacing: 20.dg,
+            mainAxisSpacing: 15.w,
+            crossAxisSpacing: 15.w,
             shrinkWrap: true,
-            childAspectRatio: 25 / 24,
+            childAspectRatio: 1.2,
             physics: const NeverScrollableScrollPhysics(),
             children: [
               InkWell(
@@ -137,36 +132,27 @@ class _HomePageState extends State<HomePage> {
                   // });
                 },
                 child: Container(
-                  //width: 140.w,
                   decoration: BoxDecoration(
                       color: MyTheme.lime,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(12))),
+                      borderRadius: BorderRadius.all(Radius.circular(12.r))),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      SizedBox(
+                          height: 50.w,
+                          width: 50.w,
+                          child: Image.asset(
+                            "assets/images/delivery_moving.png",
+                            color: Colors.grey.shade300,
+                          )),
+                      Text("Completed Delivery",
+                          style: TextStyle(color: Colors.grey.shade300)),
                       Padding(
-                        padding: const EdgeInsets.only(top: 24.0),
-                        child: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: Image.asset(
-                              "assets/images/delivery_moving.png",
-                              color: Colors.grey.shade300,
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          "Completed Delivery",
-                          style: TextStyle(color: Colors.grey.shade300),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
+                        padding: EdgeInsets.only(top: 6.w),
                         child: Text(completeDelivery,
-                            style: const TextStyle(
+                            style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 24,
+                                fontSize: 24.w,
                                 fontWeight: FontWeight.w600)),
                       )
                     ],
@@ -183,41 +169,36 @@ class _HomePageState extends State<HomePage> {
                   // });
                 },
                 child: Container(
-                  //width: 140.w,
                   decoration: BoxDecoration(
                       color: MyTheme.red,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(12))),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 24.0),
-                        child: SizedBox(
-                            height: 50,
-                            width: 50,
+                      borderRadius: BorderRadius.all(Radius.circular(12.r))),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 4.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            height: 45.w,
+                            width: 50.w,
                             child: Image.asset(
                               "assets/images/clock.png",
                               color: Colors.grey.shade300,
                             )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          "Pending Delivery",
-                          style: TextStyle(color: Colors.grey.shade300),
+                        Padding(
+                          padding: EdgeInsets.only(top: 4.w),
+                          child: Text("Pending Delivery",
+                              style: TextStyle(color: Colors.grey.shade300)),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          pendingDelivery,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(top: 6.w),
+                          child: Text(pendingDelivery,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24.w,
+                                  fontWeight: FontWeight.w600)),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -233,39 +214,30 @@ class _HomePageState extends State<HomePage> {
                   // });
                 },
                 child: Container(
-                  //width: 140.w,
                   decoration: BoxDecoration(
                       color: MyTheme.orange,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(12))),
+                      borderRadius: BorderRadius.all(Radius.circular(12.r))),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 24.0),
-                        child: SizedBox(
-                            height: 50,
-                            width: 50,
-                            child: Image.asset(
-                              "assets/images/delivery_moving.png",
-                              color: Colors.grey.shade300,
-                            )),
+                      SizedBox(
+                          height: 50.w,
+                          width: 50.w,
+                          child: Image.asset(
+                            "assets/images/delivery_moving.png",
+                            color: Colors.grey.shade300,
+                          )),
+                      Text(
+                        "Total Collected",
+                        style: TextStyle(color: Colors.grey.shade300),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          "Total Collected",
-                          style: TextStyle(color: Colors.grey.shade300),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          totalCollection,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600),
-                        ),
+                        padding: EdgeInsets.only(top: 6.w),
+                        child: Text(totalCollection,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24.w,
+                                fontWeight: FontWeight.w600)),
                       )
                     ],
                   ),
@@ -283,41 +255,36 @@ class _HomePageState extends State<HomePage> {
                   // });
                 },
                 child: Container(
-                  //width: 140.w,
                   decoration: BoxDecoration(
                       color: MyTheme.blue,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(12))),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 24.0),
-                        child: SizedBox(
-                            height: 50,
-                            width: 50,
+                      borderRadius: BorderRadius.all(Radius.circular(12.r))),
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 4.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                            height: 45.w,
+                            width: 50.w,
                             child: Image.asset(
                               "assets/images/dollar.png",
                               color: Colors.grey.shade300,
                             )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          "Earnings",
-                          style: TextStyle(color: Colors.grey.shade300),
+                        Padding(
+                          padding: EdgeInsets.only(top: 4.w),
+                          child: Text("Earnings",
+                              style: TextStyle(color: Colors.grey.shade300)),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 4.0),
-                        child: Text(
-                          totalCollection,
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.only(top: 6.w),
+                          child: Text(totalCollection,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 24.w,
+                                  fontWeight: FontWeight.w600)),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -549,7 +516,7 @@ class _HomePageState extends State<HomePage> {
         },
         child: Container(
           width: double.infinity,
-          height: 70.h,
+          height: 70.w,
           color: MyTheme.red,
           child: Row(
             children: [
@@ -558,10 +525,8 @@ class _HomePageState extends State<HomePage> {
                 child: SizedBox(
                   height: 28.h,
                   width: 28.w,
-                  child: Image.asset(
-                    "assets/images/cross_in_a_box.png",
-                    color: Colors.white,
-                  ),
+                  child: Image.asset("assets/images/cross_in_a_box.png",
+                      color: Colors.white),
                 ),
               ),
               Padding(
@@ -587,8 +552,7 @@ class _HomePageState extends State<HomePage> {
 
   buildHomeMenuRow(context) {
     return Padding(
-      padding: EdgeInsets.only(
-          top: 24.0, left: 16.0, right: 16.0, bottom: mHeight > 600 ? 0 : 100),
+      padding: EdgeInsets.only(top: 24.w, bottom: mHeight > 600 ? 0 : 100),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -605,29 +569,25 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
+                    height: 60.w,
+                    width: 60.w,
                     decoration: BoxDecoration(
                       color: MyTheme.red,
                       shape: BoxShape.circle,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Image.asset(
-                        "assets/images/human_run.png",
-                        color: Colors.white,
-                      ),
+                      padding: EdgeInsets.all(16.w),
+                      child: Image.asset("assets/images/human_run.png",
+                          color: Colors.white),
                     )),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
-                  child: Text(
-                    "On The Way ($onTheWay)",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 14,
-                        color: MyTheme.red,
-                        fontWeight: FontWeight.w600),
-                  ),
+                  padding: EdgeInsets.only(top: 6.h),
+                  child: Text("On The Way ($onTheWay)",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 14.sp,
+                          color: MyTheme.red,
+                          fontWeight: FontWeight.w600)),
                 )
               ],
             ),
@@ -645,26 +605,26 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
+                    height: 60.w,
+                    width: 60.w,
                     decoration: BoxDecoration(
                       color: MyTheme.golden,
                       shape: BoxShape.circle,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(16.w),
                       child: Image.asset(
                         "assets/images/press.png",
                         color: Colors.white,
                       ),
                     )),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
+                  padding: EdgeInsets.only(top: 6.h),
                   child: Text(
                     "Picked ($_picked)",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color: MyTheme.golden,
                         fontWeight: FontWeight.w600),
                   ),
@@ -685,26 +645,26 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               children: [
                 Container(
-                    height: 60,
-                    width: 60,
+                    height: 60.w,
+                    width: 60.w,
                     decoration: BoxDecoration(
                       color: MyTheme.blue,
                       shape: BoxShape.circle,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(16.w),
                       child: Image.asset(
                         "assets/images/sandclock.png",
                         color: Colors.white,
                       ),
                     )),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8),
+                  padding: EdgeInsets.only(top: 6.h),
                   child: Text(
                     "Assigned ($_assigned)",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         color: MyTheme.blue,
                         fontWeight: FontWeight.w600),
                   ),
