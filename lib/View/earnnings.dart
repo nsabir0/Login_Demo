@@ -10,34 +10,31 @@ class Earnings extends StatefulWidget {
 }
 
 class _EarningsState extends State<Earnings> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  ScrollController _scrollController = ScrollController();
-  ScrollController _xcrollController = ScrollController();
+  //final ScrollController _scrollController = ScrollController();
+  final ScrollController _xcrollController = ScrollController();
 
   //List<Sortable> _datewiseSortList = Sortable.getDatewiseSortList();
   //List<Sortable> _paymentTypeSortList = Sortable.getPaymentTypeSortList();
-
   //late Sortable _selectedDate;
   //late Sortable _selectedPaymentType;
-
   //late List<DropdownMenuItem<Sortable>> _dropdownDatewiseSortItems;
   //late List<DropdownMenuItem<Sortable>> _dropdownPaymentTypeSortItems;
-
   //init
 
-  List<dynamic> _list = [];
-  bool _isInitial = true;
-  int _page = 1;
-  int _totalData = 0;
-  bool _showLoadingContainer = false;
-  String _today_date = ". . .";
-  String _yesterday_date = ". . .";
-  String _today_earning = ". . .";
-  String _yesterday_earning = ". . .";
+  final List<dynamic> _list = [];
+  // final bool _isInitial = true;
+  // final int _page = 1;
+  final int _totalData = 0;
+  final bool _showLoadingContainer = false;
+  final String todayDate = ". . .";
+  final String yesterdayDate = ". . .";
+  final String todayEarning = ". . .";
+  final String yesterdayEarning = ". . .";
 
-  String _defaultDateKey = '';
-  String _defaultPaymentTypeKey = '';
+  // String _defaultDateKey = '';
+  // String _defaultPaymentTypeKey = '';
 
   Future<void> _onRefresh() async {}
 
@@ -201,13 +198,13 @@ class _EarningsState extends State<Earnings> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(bottom: 2.0),
-                        child: Text(_today_earning,
+                        child: Text(todayEarning,
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600)),
                       ),
-                      Text(_today_date,
+                      Text(todayDate,
                           style: const TextStyle(color: Colors.white)),
                     ],
                   ),
@@ -235,13 +232,13 @@ class _EarningsState extends State<Earnings> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 2.0),
-                      child: Text(_yesterday_earning,
-                          style: TextStyle(
+                      child: Text(yesterdayEarning,
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: 18,
                               fontWeight: FontWeight.w600)),
                     ),
-                    Text(_yesterday_date,
+                    Text(yesterdayDate,
                         style: const TextStyle(color: Colors.white)),
                   ],
                 ),
@@ -260,13 +257,13 @@ class _EarningsState extends State<Earnings> {
     //           .buildListShimmer(item_count: 5, item_height: 100.0));
     // } else
 
-    if (_list.length > 0) {
+    if (_list.isNotEmpty) {
       return SingleChildScrollView(
         child: ListView.builder(
           padding: const EdgeInsets.all(8.0),
           itemCount: _list.length,
           scrollDirection: Axis.vertical,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (context, index) {
             return Padding(
@@ -286,7 +283,7 @@ class _EarningsState extends State<Earnings> {
         ),
       );
     } else if (_totalData == 0) {
-      return Center(child: Text("No data is available"));
+      return const Center(child: Text("No data is available"));
     } else {
       return Container(); // should never be happening
     }
@@ -297,7 +294,7 @@ class _EarningsState extends State<Earnings> {
       children: [
         Card(
           shape: RoundedRectangleBorder(
-            side: new BorderSide(color: MyTheme.light_grey, width: 1.0),
+            side: BorderSide(color: MyTheme.light_grey, width: 1.0),
             borderRadius: BorderRadius.circular(8.0),
           ),
           elevation: 0.0,
@@ -323,7 +320,7 @@ class _EarningsState extends State<Earnings> {
                       Text(_list[index].date,
                           style: TextStyle(
                               color: MyTheme.font_grey, fontSize: 13)),
-                      Spacer(),
+                      const Spacer(),
                       Text(
                         _list[index].earning,
                         style: TextStyle(
